@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: 'jdbc:postgresql://192.168.30.167:5432/kmsdb'
+    username: 'kmsdb'
+    password: ENC(kgMG6DxPyCBI9a2Qm8YWKT8Bs9eviuwsB7WimkxxhXjoPdSj8Cc05sDdxF1vXRqG37eM+FeWLCf3jkJ7H5NbYkEg+eUuLifIsaCuL4chr7fRZJiU0Kteb7BFnwDUSA/zvW4s1oFF+RR2P69DmHOzIld3SANWcb/Q6OkktVNlaTFIrNVshsE/cH0+CiE4/e2kt4H4iZk1zXc/oABHFZCxPacnQGInGw4Vy0TAZfA8g8Bj3jV5qLYuehzjBAQX0WjCzM+UfQ3wq99DyTOVPX5Zr8VKbvgGhzMjuxI93HN9QNzBxcGaVfH9y0YvY0E0UrY8Elmkgp6uRukwLM0K9ei+Ig==)
+    driver-class-name: org.postgresql.Driver
+    hikari:
+    minimum-idle: 1
+    idle-timeout: 60000
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect

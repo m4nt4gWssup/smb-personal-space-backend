@@ -1,0 +1,51 @@
+server:
+  port: 8880
+spring:
+  application:
+    name: smb-personal-space
+  config:
+    import:
+      - classpath:dkc_db-postgresql.yaml
+      #- file:/app/tomcat/tomcat-addons/conf/kms-common/admin_client.yaml
+  jpa:
+    hibernate:
+      use-new-id-generator-mappings: false
+      ddl-auto: none
+    properties:
+      hibernate:
+        session:
+          events:
+            log:
+              LOG_QUERIES_SLOWER_THAN_MS: 20
+        SQL_SLOW: info
+        #        generate_statistics: true
+        format_sql: true
+        query:
+          in_clause_parameter_padding: true
+        show_sql: true
+logging:
+  level:
+    # INFO for prod, DEBUG for test
+    ru.dis.personalspace.service: TRACE
+    ru.dis.personalspace.service.TreeFolderService: WARN
+    org:
+      apache:
+        tomcat: TRACE
+        catalina: TRACE
+  file:
+    name: app/tomcat/tomcat-addons/logs/smb-personal-space/smb-personal-space.log
+
+ru:
+  disgroup:
+    actuator:
+      logging:
+        file:
+          name: smb-personal-space
+          path: app/tomcat/tomcat-addons/logs/smb-personal-space/actuator
+    smb-personal-space:
+      news-storage-url: "http://192.168.30.167:8081/news-storage"
+      norm-docs-url: "http://192.168.30.167:8081/norm-docs"
+      faq-url: "http://192.168.30.167:8081/vtb-faq-integration"
+      page-size: 15
+      available-groups: [3]
+      article-link: '/kms/CM/INTERNAL/LAYOUT?item_id=<LAYOUT_ID>&homePage=CM/VIEW?item_id=<ITEM_ID>'
